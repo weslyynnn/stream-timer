@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Styling the count-up timer */
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0);
+      font-family: Arial, sans-serif;
+    }
+
+    #countup {
+      font-size: 48px;
+      color: #ffffff;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    }
+  </style>
+</head>
+<body>
+
+<div id="countup">00:00</div>
+
+<script>
+  let countUpTime = 0; // Start from 0 seconds
+
+  function startCountUp() {
+    const countUpDisplay = document.getElementById("countup");
+
+    setInterval(() => {
+      const minutes = String(Math.floor(countUpTime / 60)).padStart(2, '0');
+      const seconds = String(countUpTime % 60).padStart(2, '0');
+      countUpDisplay.textContent = ${minutes}:${seconds};
+      countUpTime++; // Increment time by 1 second
+    }, 1000);
+  }
+
+  // Start count-up automatically
+  startCountUp();
+</script>
+
+</body>
+</html>
